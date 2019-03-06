@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Pod.css';
-import Sheep from './assets/sheep.svg';
+// https://www.flaticon.com/free-icon/sheep_194983
+import Sheep from 'svg-react-loader?name=Sheep!./assets/sheep.svg';
 
 const Pod = ({ pods }) => {
   return (<div className='pod'>
