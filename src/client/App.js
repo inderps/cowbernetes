@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import './app.css';
-import ReactImage from './react.png';
 import Cluster from './components/Cluster';
 
 export default class App extends Component {
-  state = { username: null };
+  // state = { username: null };
 
   componentDidMount() {
     // fetch('/api/getUsername')
@@ -13,7 +11,10 @@ export default class App extends Component {
   }
 
   render() {
+    const controllers = [{ name: 'app', pods: Array.from(Array(50).keys()) }, { name: 'journey-service', pods: Array.from(Array(5).keys()) },
+      { name: 'ingestor-service', pods: Array.from(Array(10).keys()) }, { name: 'delivery-service', pods: Array.from(Array(5).keys()) },
+      { name: 'config-service', pods: Array.from(Array(7).keys()) }, { name: 'react-dashboard', pods: Array.from(Array(5).keys()) }];
     // const { username } = this.state;
-    return (<Cluster pods={Array.from(Array(50).keys())} />);
+    return (<Cluster controllers={controllers} />);
   }
 }

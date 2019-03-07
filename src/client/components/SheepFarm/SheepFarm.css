@@ -1,0 +1,39 @@
+.sheep-farm {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  min-height: 200px;
+  margin: 15px;
+}
+
+.farm {
+  /* credit: https://www.pinterest.ca/pin/329185053984296818/ */
+  background: url('./assets/grass.jpg');
+  background-size: 100px;
+
+  border: 15px solid;
+  border-image: url('./assets/fence.png');
+  border-image-repeat: round;
+  border-image-slice: 138;
+  border-image-width: 15px;
+  border-image-outset: 0px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  flex: 1;
+  padding: 10px;
+}
+
+.billboard {
+  background: url('./assets/billboard.jpg');
+  font-size: 20px;
+  width: 50%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
