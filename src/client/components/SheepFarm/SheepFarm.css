@@ -4,19 +4,12 @@
   max-width: 30%;
   min-height: 200px;
   margin: 15px;
+  padding-top: 50px;
 }
 
 .farm {
-  /* credit: https://www.pinterest.ca/pin/329185053984296818/ */
-  background: url('./assets/grass.jpg');
-  background-size: 100px;
-
-  border: 15px solid;
-  border-image: url('./assets/fence.png');
-  border-image-repeat: round;
-  border-image-slice: 138;
-  border-image-width: 15px;
-  border-image-outset: 0px;
+  background: url('./assets/grass.png');
+  background-size: 25px;
 
   display: flex;
   flex-wrap: wrap;
@@ -29,11 +22,19 @@
 }
 
 .billboard {
-  background: url('./assets/billboard.jpg');
-  font-size: 20px;
-  width: 50%;
+  background: url('./assets/billboard.png');
+  font-size: 16px;
   height: 30px;
   display: flex;
   align-items: center;
   padding-left: 10px;
+  background-size: 30px;
+  color: white;
+}
+
+.house {
+  width: 100px;
+  position: absolute;
+  right: 0;
+  top: 15px;
 }
