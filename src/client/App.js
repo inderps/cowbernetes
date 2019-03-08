@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cluster from './components/Cluster';
+import Village from './components/Village';
 
 export default class App extends Component {
   // state = { username: null };
@@ -15,6 +15,6 @@ export default class App extends Component {
       { name: 'ingestor-service', pods: Array.from(Array(10).keys()) }, { name: 'delivery-service', pods: Array.from(Array(5).keys()) },
       { name: 'config-service', pods: Array.from(Array(7).keys()) }, { name: 'react-dashboard', pods: Array.from(Array(5).keys()) }];
     // const { username } = this.state;
-    return (<Cluster controllers={controllers} />);
+    return (<Village controllers={controllers} />);
   }
 }

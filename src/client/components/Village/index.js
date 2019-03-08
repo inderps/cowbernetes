@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'masonry-layout';
 import SheepFarm from '../SheepFarm';
-import './Cluster.css';
+import './Village.css';
 
-class Cluster extends Component {
+class Village extends Component {
   static propTypes = {
     controllers: PropTypes.arrayOf(PropTypes.object).isRequired
   }
@@ -31,4 +31,4 @@ class Cluster extends Component {
   }
 }
 
-export default Cluster;
+export default Village;
