@@ -10,10 +10,21 @@ class Village extends Component {
   }
 
   componentDidMount() {
-    new Masonry('.village', { // eslint-disable-line no-new
-      itemSelector: '.cow-farm',
-      columnWidth: 50
-    });
+  }
+
+  componentDidUpdate() {
+    if (this.masonry && this.props.controllers) {
+      this.masonry.destroy()
+      this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+        itemSelector: '.cow-farm',
+        columnWidth: 50
+      });
+    } else if (this.props.controllers) {
+      this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+        itemSelector: '.cow-farm',
+        columnWidth: 50
+      });
+    }
   }
 
   render() {
@@ -23,7 +34,7 @@ class Village extends Component {
       <div className="village">
         {
         controllers.map(controller => (
-          <CowFarm key={controller.name} controller={controller} />
+          <CowFarm key={controller.fullName} controller={controller} />
         ))
       }
       </div>

@@ -10,7 +10,7 @@ const CowFarm = ({ controller }) => (
     <img src={houseImage} className="house" alt="house" />
     <div className="farm">
       {
-        controller.pods.map(pod => (<Cow key={pod} pod={pod} />))
+        controller.pods.map(pod => (<Cow key={pod.name} pod={pod} />))
       }
     </div>
   </div>
