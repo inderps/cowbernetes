@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'masonry-layout';
-import SheepFarm from '../SheepFarm';
+import CowFarm from '../CowFarm';
 import './Village.css';
 
 class Village extends Component {
@@ -11,7 +11,7 @@ class Village extends Component {
 
   componentDidMount() {
     new Masonry('.village', { // eslint-disable-line no-new
-      itemSelector: '.sheep-farm',
+      itemSelector: '.cow-farm',
       columnWidth: 50
     });
   }
@@ -23,7 +23,7 @@ class Village extends Component {
       <div className="village">
         {
         controllers.map(controller => (
-          <SheepFarm key={controller.name} controller={controller} />
+          <CowFarm key={controller.name} controller={controller} />
         ))
       }
       </div>

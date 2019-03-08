@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Sheep from '../Sheep';
-import './SheepFarm.css';
+import Cow from '../Cow';
+import './CowFarm.css';
 import houseImage from './assets/house.png';
 
-const SheepFarm = ({ controller }) => (
-  <div className="sheep-farm">
+const CowFarm = ({ controller }) => (
+  <div className="cow-farm">
     <div className="billboard">{controller.name}</div>
     <img src={houseImage} className="house" alt="house" />
     <div className="farm">
       {
-        controller.pods.map(pod => (<Sheep key={pod} pod={pod} />))
+        controller.pods.map(pod => (<Cow key={pod} pod={pod} />))
       }
     </div>
   </div>
 );
 
-SheepFarm.propTypes = {
+CowFarm.propTypes = {
   controller: PropTypes.shape({
     name: PropTypes.string,
     pod: PropTypes.arrayOf(PropTypes.object)
   }).isRequired
 };
 
-export default SheepFarm;
+export default CowFarm;
