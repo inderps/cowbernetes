@@ -6,6 +6,6 @@ import sickCow from './assets/sick-cow.gif';
 // https://www.flaticon.com/free-icon/cow_194983
 // import Cow from 'svg-react-loader?name=Cow!./assets/cow.svg';
 
-const Cow = () => (<img className="cow" src={deadCow} alt='cow' />);
+const Cow = () => (<img className="cow" src={cow} alt='cow' />);
 
 export default Cow;

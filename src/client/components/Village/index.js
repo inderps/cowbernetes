@@ -9,9 +9,6 @@ class Village extends Component {
     controllers: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
-  componentDidMount() {
-  }
-
   componentDidUpdate() {
     if (this.masonry && this.props.controllers) {
       this.masonry.destroy()
