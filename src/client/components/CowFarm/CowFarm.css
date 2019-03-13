@@ -9,10 +9,6 @@
 .farm {
   background: url('./assets/grass.png');
   background-size: 25px;
-  border: 15px solid;
-  border-image: url('./assets/border2.png');
-  border-image-slice: 15;
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -43,4 +39,11 @@
   position: absolute;
   right: 15px;
   top: 25px;
+}
+
+.customTag {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
 }

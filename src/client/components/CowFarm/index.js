@@ -13,6 +13,7 @@ const CowFarm = ({ controller }) => (
         controller.pods.map(pod => (<Cow key={pod.name} pod={pod} />))
       }
     </div>
+    <div className="customTag">v2.0</div>
   </div>
 );
 

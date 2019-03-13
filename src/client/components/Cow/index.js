@@ -7,9 +7,10 @@ import sickCow from './assets/sick-cow.gif';
 // import Cow from 'svg-react-loader?name=Cow!./assets/cow.svg';
 
 const Cow = ({ pod }) => {
-  let cow = deadCow, cowClass = 'cow shaking'
+  let cow = deadCow; let
+    cowClass = 'cow shaking';
 
-  switch(pod.status) {
+  switch (pod.status) {
     case 'Running':
       cow = sickCow;
       break;
@@ -22,8 +23,8 @@ const Cow = ({ pod }) => {
       break;
   }
 
-  console.log(pod)
-  return (<img className={cowClass} src={cow} alt='cow' />);
+  console.log(pod);
+  return (<img className={cowClass} src={cow} alt="cow" />);
 };
 
 export default Cow;

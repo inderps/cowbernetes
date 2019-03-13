@@ -11,7 +11,7 @@ class Village extends Component {
 
   componentDidUpdate() {
     if (this.masonry && this.props.controllers) {
-      this.masonry.destroy()
+      this.masonry.destroy();
       this.masonry = new Masonry('.village', { // eslint-disable-line no-new
         itemSelector: '.cow-farm',
         columnWidth: 50
