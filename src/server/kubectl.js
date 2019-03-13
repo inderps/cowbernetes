@@ -1,42 +1,36 @@
-const execSync = require('child_process').execSync;
+const childProcess = require('child_process');
+const { listOfYamls, yamlToObject } = require('./utils/yaml-processor');
+
+const listOfPods = (singleYaml) => {
+  const podsYaml = listOfYamls(singleYaml);
+  return podsYaml.map(yaml => yamlToObject(yaml, ['Name', 'Status', 'Controlled By', 'Restart Count', 'Start Time']));
+};
 
 exports.getPods = () => {
-
-  const podsYaml = execSync('kubectl describe pods').toString().split('\n')
-
-  const pods = []
-  let pod = {}
-
-  podsYaml.forEach(line => {
-    if (line.startsWith('Name:')) {
-      pod.name = line.match(/Name:               (.*)/)[1]
-    } else if(line.startsWith('Status:')) {
-      pod.status = line.match(/Status:             (.*)/)[1]
-    } else if(line.startsWith('Controlled By:')) {
-      pod.controller = line.match(/Controlled By:      (.*)/)[1]
-      pods.push(pod)
-      pod = {}
-    }
-  })
-
-  return pods
-}
+  const podsYaml = childProcess.execSync('kubectl describe pods').toString();
+  return listOfPods(podsYaml);
+};
 
 exports.getControllers = () => {
-  const pods = exports.getPods()
+  const pods = exports.getPods();
 
-  const controllers = []
-  const controller = {}
+  const controllers = [];
 
-  pods.forEach(pod => {
-    if (controllers.filter(c => c.fullName === pod.controller).length === 0) {
+  pods.forEach((pod) => {
+    if (controllers.filter(c => c.fullName === pod['Controlled By']).length === 0 && !pod['Controlled By'].startsWith('Job')) {
       controllers.push({
-        fullName: pod.controller,
-        name: pod.controller.split('/')[1],
-        pods: pods.filter(p => p.controller === pod.controller).map(p => ({ status: p.status, name: p.name }))
-      })
+        fullName: pod['Controlled By'],
+        name: pod['Controlled By'].split('/')[1],
+        pods: pods.filter(p => p['Controlled By'] === pod['Controlled By']).map(p => ({ status: p.Status, name: p.Name }))
+      });
     }
-  })
+  });
+
+  controllers.push({
+    fullName: 'Jobs',
+    name: 'Jobs',
+    pods: pods.filter(p => p['Controlled By'].startsWith('Job')).map(p => ({ status: p.Status, name: p.Name }))
+  });
 
   return controllers;
-}
+};

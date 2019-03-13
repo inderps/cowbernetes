@@ -1,5 +1,5 @@
-const { getControllers } = require('./kubectl');
 const express = require('express');
+const { getControllers } = require('./kubectl');
 
 const app = express();
 

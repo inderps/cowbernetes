@@ -1,0 +1,2111 @@
+Name:               app-65c64d7b9d-lblvb
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-gmlc/10.128.15.196
+Start Time:         Thu, 28 Feb 2019 10:11:58 -0500
+Labels:             app=app
+                    org=taplytics
+                    pod-template-hash=2172083658
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.0.17
+Controlled By:      ReplicaSet/app-65c64d7b9d
+Containers:
+  app:
+    Container ID:   docker://45c0a8e8fd08a251f5240ca0fe3ff14ba26ba0134303a8767a5b051f4b4f5f65
+    Image:          gcr.io/taplytics-gcr/taplytics-api:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/taplytics-api@sha256:5f342a25f9ce595fd224b3d4215924e36a42cd59b0ff734269d53e98a79c5aac
+    Port:           3001/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 28 Feb 2019 21:18:21 -0500
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    137
+      Started:      Thu, 28 Feb 2019 10:12:49 -0500
+      Finished:     Thu, 28 Feb 2019 21:17:37 -0500
+    Ready:          True
+    Restart Count:  1
+    Limits:
+      cpu:     1
+      memory:  2G
+    Requests:
+      cpu:      1
+      memory:   1G
+    Liveness:   http-get http://:3001/healthz delay=20s timeout=5s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:3001/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      NO_CACHE:              1
+      SKIP_KAFKA:            1
+      APP_NAME:              web
+      CREATE_MONGO_INDEXES:  0
+      TEST_DATA_SECRET:      test
+      CPU_COUNT:             1 (requests.cpu)
+      PORT:                  3001
+      WEB:                   1
+      PUSH:                  0
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               cassandra-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zhj8/10.128.15.198
+Start Time:         Tue, 19 Feb 2019 15:00:26 -0500
+Labels:             app=cassandra
+                    controller-revision-hash=cassandra-586464b5b
+                    statefulset.kubernetes.io/pod-name=cassandra-0
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.6.7
+Controlled By:      StatefulSet/cassandra
+Containers:
+  cassandra:
+    Container ID:   docker://c320bbfa49216875f76bb6e43b336b6ef99159db6d4de564509c08d940125d20
+    Image:          cassandra:3.11.2
+    Image ID:       docker-pullable://cassandra@sha256:aaad60725b697902b5715555209822addb86d95aaf239d0ceee53d01ee1b3a7e
+    Ports:          7000/TCP, 9042/TCP, 7199/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:01:30 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  5Gi
+    Requests:
+      cpu:     1
+      memory:  3Gi
+    Environment:
+      CASSANDRA_CLUSTER_NAME:  cassandra
+      CASSANDRA_SEEDS:         cassandra-0.cassandra.default.svc.cluster.local
+    Mounts:
+      /var/lib/cassandra from storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  storage-cassandra-0
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               cassandra-1
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Tue, 19 Feb 2019 15:01:33 -0500
+Labels:             app=cassandra
+                    controller-revision-hash=cassandra-586464b5b
+                    statefulset.kubernetes.io/pod-name=cassandra-1
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.4.6
+Controlled By:      StatefulSet/cassandra
+Containers:
+  cassandra:
+    Container ID:   docker://6d41366ba06d10694e849e42bc08d976d7791c01253b585734d8c1dc24667b37
+    Image:          cassandra:3.11.2
+    Image ID:       docker-pullable://cassandra@sha256:aaad60725b697902b5715555209822addb86d95aaf239d0ceee53d01ee1b3a7e
+    Ports:          7000/TCP, 9042/TCP, 7199/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:02:15 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  5Gi
+    Requests:
+      cpu:     1
+      memory:  3Gi
+    Environment:
+      CASSANDRA_CLUSTER_NAME:  cassandra
+      CASSANDRA_SEEDS:         cassandra-0.cassandra.default.svc.cluster.local
+    Mounts:
+      /var/lib/cassandra from storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  storage-cassandra-1
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               cassandra-2
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 19 Feb 2019 15:02:18 -0500
+Labels:             app=cassandra
+                    controller-revision-hash=cassandra-586464b5b
+                    statefulset.kubernetes.io/pod-name=cassandra-2
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.1.6
+Controlled By:      StatefulSet/cassandra
+Containers:
+  cassandra:
+    Container ID:   docker://160cb73c69ad2034f7cfac9d7077d3308ab06ff816280e18453b732ab1e65511
+    Image:          cassandra:3.11.2
+    Image ID:       docker-pullable://cassandra@sha256:aaad60725b697902b5715555209822addb86d95aaf239d0ceee53d01ee1b3a7e
+    Ports:          7000/TCP, 9042/TCP, 7199/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:02:59 -0500
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    3
+      Started:      Tue, 19 Feb 2019 15:02:42 -0500
+      Finished:     Tue, 19 Feb 2019 15:02:58 -0500
+    Ready:          True
+    Restart Count:  1
+    Limits:
+      cpu:     1
+      memory:  5Gi
+    Requests:
+      cpu:     1
+      memory:  3Gi
+    Environment:
+      CASSANDRA_CLUSTER_NAME:  cassandra
+      CASSANDRA_SEEDS:         cassandra-0.cassandra.default.svc.cluster.local
+    Mounts:
+      /var/lib/cassandra from storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  storage-cassandra-2
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               cassandra-3
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-wpr7/10.128.15.197
+Start Time:         Sun, 10 Mar 2019 01:51:52 -0500
+Labels:             app=cassandra
+                    controller-revision-hash=cassandra-586464b5b
+                    statefulset.kubernetes.io/pod-name=cassandra-3
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.3.19
+Controlled By:      StatefulSet/cassandra
+Containers:
+  cassandra:
+    Container ID:   docker://68c62177b7ac940db0553c542e297f290ec0f45e8a8db44f445f7f6b928b8948
+    Image:          cassandra:3.11.2
+    Image ID:       docker-pullable://cassandra@sha256:aaad60725b697902b5715555209822addb86d95aaf239d0ceee53d01ee1b3a7e
+    Ports:          7000/TCP, 9042/TCP, 7199/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Sun, 10 Mar 2019 01:52:02 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  5Gi
+    Requests:
+      cpu:     1
+      memory:  3Gi
+    Environment:
+      CASSANDRA_CLUSTER_NAME:  cassandra
+      CASSANDRA_SEEDS:         cassandra-0.cassandra.default.svc.cluster.local
+    Mounts:
+      /var/lib/cassandra from storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  storage-cassandra-3
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               config-6f576fc95c-fz6rr
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-gmlc/10.128.15.196
+Start Time:         Fri, 22 Feb 2019 13:21:14 -0500
+Labels:             app=config
+                    org=taplytics
+                    pod-template-hash=2913297517
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.0.16
+Controlled By:      ReplicaSet/config-6f576fc95c
+Containers:
+  config:
+    Container ID:   docker://61af526d644bed4147b99950d82a1a7aa2880047b1f787054e5727ed31497550
+    Image:          gcr.io/taplytics-gcr/config-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/config-service@sha256:99a4d107e57602a8409983b2f9c86bcaf0c89d5f3b1531e7c872a4f45d84f38c
+    Port:           3003/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 22 Feb 2019 13:21:52 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  3G
+    Requests:
+      cpu:      1
+      memory:   500M
+    Liveness:   http-get http://:3003/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:3003/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      CPU_COUNT:    1 (requests.cpu)
+      PORT:         3003
+      REDIS_CACHE:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               data-refresh-cron-1552437780-jxcxd
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 12 Mar 2019 20:43:04 -0400
+Labels:             controller-uid=f65350bb-4528-11e9-a42d-42010a80004f
+                    job-name=data-refresh-cron-1552437780
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container data-refresh-cron
+Status:             Succeeded
+IP:                 10.12.1.115
+Controlled By:      Job/data-refresh-cron-1552437780
+Containers:
+  data-refresh-cron:
+    Container ID:   docker://5c29d34710ec74780783da5a11f4ed7c4277af20a180b54a2a689aeb1ca7a753
+    Image:          gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/data-refresh-cron@sha256:6c29cca461611dbb54ea5ed09f134346b979ccf6e513267a9b9c3b670c9101c4
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 12 Mar 2019 20:43:06 -0400
+      Finished:     Tue, 12 Mar 2019 20:43:07 -0400
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:  100m
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      MAX_RETRIES:  3
+      API_URL:      https://httpbin.org/post
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason          Age   From                                                          Message
+  ----    ------          ----  ----                                                          -------
+  Normal  Scheduled       3m9s  default-scheduler                                             Successfully assigned default/data-refresh-cron-1552437780-jxcxd to gke-terraform-2019-clust-default-pool-ecd4d825-zgjz
+  Normal  Pulling         3m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  pulling image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Pulled          3m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Successfully pulled image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Created         3m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Created container
+  Normal  Started         3m7s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Started container
+  Normal  SandboxChanged  3m5s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               data-refresh-cron-1552437840-jl6vk
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 12 Mar 2019 20:44:04 -0400
+Labels:             controller-uid=1a2b3041-4529-11e9-a42d-42010a80004f
+                    job-name=data-refresh-cron-1552437840
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container data-refresh-cron
+Status:             Succeeded
+IP:                 10.12.1.117
+Controlled By:      Job/data-refresh-cron-1552437840
+Containers:
+  data-refresh-cron:
+    Container ID:   docker://4485f970f23afb3d07b1abc6750c425aa75352a5c13e9b54febcce55c7e1e066
+    Image:          gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/data-refresh-cron@sha256:6c29cca461611dbb54ea5ed09f134346b979ccf6e513267a9b9c3b670c9101c4
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 12 Mar 2019 20:44:05 -0400
+      Finished:     Tue, 12 Mar 2019 20:44:06 -0400
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:  100m
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      MAX_RETRIES:  3
+      API_URL:      https://httpbin.org/post
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                                          Message
+  ----    ------     ----  ----                                                          -------
+  Normal  Scheduled  2m9s  default-scheduler                                             Successfully assigned default/data-refresh-cron-1552437840-jl6vk to gke-terraform-2019-clust-default-pool-ecd4d825-zgjz
+  Normal  Pulling    2m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  pulling image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Pulled     2m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Successfully pulled image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Created    2m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Created container
+  Normal  Started    2m8s  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Started container
+
+
+Name:               data-refresh-cron-1552437900-g9k8l
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 12 Mar 2019 20:45:04 -0400
+Labels:             controller-uid=3dffcf3a-4529-11e9-a42d-42010a80004f
+                    job-name=data-refresh-cron-1552437900
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container data-refresh-cron
+Status:             Succeeded
+IP:                 10.12.1.118
+Controlled By:      Job/data-refresh-cron-1552437900
+Containers:
+  data-refresh-cron:
+    Container ID:   docker://c60b9811702cee472ca0b55600d47b4cfd5accb63682b61bbbf85051cbebf823
+    Image:          gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/data-refresh-cron@sha256:6c29cca461611dbb54ea5ed09f134346b979ccf6e513267a9b9c3b670c9101c4
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 12 Mar 2019 20:45:06 -0400
+      Finished:     Tue, 12 Mar 2019 20:45:07 -0400
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:  100m
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      MAX_RETRIES:  3
+      API_URL:      https://httpbin.org/post
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason          Age   From                                                          Message
+  ----    ------          ----  ----                                                          -------
+  Normal  Scheduled       69s   default-scheduler                                             Successfully assigned default/data-refresh-cron-1552437900-g9k8l to gke-terraform-2019-clust-default-pool-ecd4d825-zgjz
+  Normal  Pulling         67s   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  pulling image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Pulled          67s   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Successfully pulled image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Created         67s   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Created container
+  Normal  Started         67s   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Started container
+  Normal  SandboxChanged  64s   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               data-refresh-cron-1552437960-ltsqs
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 12 Mar 2019 20:46:04 -0400
+Labels:             controller-uid=61d65abe-4529-11e9-a42d-42010a80004f
+                    job-name=data-refresh-cron-1552437960
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container data-refresh-cron
+Status:             Succeeded
+IP:                 10.12.1.120
+Controlled By:      Job/data-refresh-cron-1552437960
+Containers:
+  data-refresh-cron:
+    Container ID:   docker://c5d7957e30aed80b6aec51dd82fda00cf21eb668c18daf4831258a6affd0d73a
+    Image:          gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/data-refresh-cron@sha256:6c29cca461611dbb54ea5ed09f134346b979ccf6e513267a9b9c3b670c9101c4
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 12 Mar 2019 20:46:06 -0400
+      Finished:     Tue, 12 Mar 2019 20:46:07 -0400
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:  100m
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      MAX_RETRIES:  3
+      API_URL:      https://httpbin.org/post
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                                          Message
+  ----    ------     ----  ----                                                          -------
+  Normal  Scheduled  9s    default-scheduler                                             Successfully assigned default/data-refresh-cron-1552437960-ltsqs to gke-terraform-2019-clust-default-pool-ecd4d825-zgjz
+  Normal  Pulling    8s    kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  pulling image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Pulled     8s    kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Successfully pulled image "gcr.io/taplytics-gcr/data-refresh-cron:TEC-2404-data-refresh-cron"
+  Normal  Created    8s    kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Created container
+  Normal  Started    7s    kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-zgjz  Started container
+
+
+Name:               elasticsearch-1-deployer-254v7
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Fri, 22 Feb 2019 14:20:59 -0500
+Labels:             controller-uid=fc46f60b-36d6-11e9-9674-42010a8000d0
+                    job-name=elasticsearch-1-deployer
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container deployer
+Status:             Succeeded
+IP:                 10.12.4.18
+Controlled By:      Job/elasticsearch-1-deployer
+Containers:
+  deployer:
+    Container ID:   docker://be3845b30e86ae37a48ba7c2283a855b4481cfe2dd57ad54493aab99a1321b4e
+    Image:          gcr.io/cloud-marketplace/google/elasticsearch/deployer@sha256:5263738f2726632b3c19c9fb3a54eaf134f7cbf327e903897a60ec446ad9f375
+    Image ID:       docker-pullable://gcr.io/cloud-marketplace/google/elasticsearch/deployer@sha256:5263738f2726632b3c19c9fb3a54eaf134f7cbf327e903897a60ec446ad9f375
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 22 Feb 2019 14:21:11 -0500
+      Finished:     Fri, 22 Feb 2019 14:21:14 -0500
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:  100m
+    Environment Variables from:
+      elasticsearch-1-deployer-config  ConfigMap  Optional: false
+    Environment:                       <none>
+    Mounts:
+      /data/values from config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from elasticsearch-1-deployer-sa-token-ldlhz (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      elasticsearch-1-deployer-config
+    Optional:  false
+  elasticsearch-1-deployer-sa-token-ldlhz:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  elasticsearch-1-deployer-sa-token-ldlhz
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               elasticsearch-1-elasticsearch-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Fri, 22 Feb 2019 14:21:18 -0500
+Labels:             app.kubernetes.io/component=elasticsearch-server
+                    app.kubernetes.io/name=elasticsearch-1
+                    controller-revision-hash=elasticsearch-1-elasticsearch-655475b449
+                    statefulset.kubernetes.io/pod-name=elasticsearch-1-elasticsearch-0
+Annotations:        kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu request for container elasticsearch; cpu request for init container set-max-map-count
+Status:             Running
+IP:                 10.12.4.19
+Controlled By:      StatefulSet/elasticsearch-1-elasticsearch
+Init Containers:
+  set-max-map-count:
+    Container ID:  docker://10918a6723e8d77d4c9045614823b5139c4172b9833ff4397da92c124ecc183a
+    Image:         gcr.io/cloud-marketplace/google/elasticsearch/ubuntu16_04@sha256:281e570b1c254121ef9db4698554084a809d120aebfe14486c1014d0b6d4d3f5
+    Image ID:      docker-pullable://gcr.io/cloud-marketplace/google/elasticsearch/ubuntu16_04@sha256:281e570b1c254121ef9db4698554084a809d120aebfe14486c1014d0b6d4d3f5
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/bash
+      -c
+      if [[ "$(sysctl vm.max_map_count --values)" -lt 262144 ]]; then sysctl -w vm.max_map_count=262144; fi
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 22 Feb 2019 14:21:45 -0500
+      Finished:     Fri, 22 Feb 2019 14:21:45 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Containers:
+  elasticsearch:
+    Container ID:   docker://214ee3606a329b77752516819470976471d3af4153272337c37b066fe78a6266
+    Image:          gcr.io/cloud-marketplace/google/elasticsearch@sha256:1486a1f208579c3761a68dd12f26d0c7f4ee6728dff55a843f146c78836f7928
+    Image ID:       docker-pullable://gcr.io/cloud-marketplace/google/elasticsearch@sha256:1486a1f208579c3761a68dd12f26d0c7f4ee6728dff55a843f146c78836f7928
+    Ports:          9200/TCP, 9300/TCP
+    Host Ports:     0/TCP, 0/TCP
+    State:          Running
+      Started:      Fri, 22 Feb 2019 14:22:11 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   2Gi
+    Liveness:   exec [/usr/bin/pgrep -x java] delay=5s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:9200/_cluster/health%3Flocal=true delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      NODE_NAME:          elasticsearch-1-elasticsearch-0 (v1:metadata.name)
+      CLUSTER_NAME:       elasticsearch-1-cluster
+      DISCOVERY_SERVICE:  elasticsearch-1-elasticsearch-svc
+      BACKUP_REPO_PATH:   
+    Mounts:
+      /etc/elasticsearch/elasticsearch.yml from configmap (rw)
+      /etc/elasticsearch/log4j2.properties from configmap (rw)
+      /usr/share/elasticsearch/data from elasticsearch-1-elasticsearch-pvc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  elasticsearch-1-elasticsearch-pvc:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  elasticsearch-1-elasticsearch-pvc-elasticsearch-1-elasticsearch-0
+    ReadOnly:   false
+  configmap:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      elasticsearch-1-configmap
+    Optional:  false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason     Age   From                                                          Message
+  ----     ------     ----  ----                                                          -------
+  Warning  Unhealthy  25m   kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-m9kn  Liveness probe failed: rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:247: starting container process caused "process_linux.go:87: adding pid 384937 to cgroups caused \"failed to write 384937 to cgroup.procs: write /sys/fs/cgroup/cpu,cpuacct/kubepods/burstable/pod052a6d3d-36d7-11e9-9674-42010a8000d0/214ee3606a329b77752516819470976471d3af4153272337c37b066fe78a6266/cgroup.procs: invalid argument\""
+
+
+Name:               elasticsearch-1-elasticsearch-1
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Fri, 22 Feb 2019 14:23:05 -0500
+Labels:             app.kubernetes.io/component=elasticsearch-server
+                    app.kubernetes.io/name=elasticsearch-1
+                    controller-revision-hash=elasticsearch-1-elasticsearch-655475b449
+                    statefulset.kubernetes.io/pod-name=elasticsearch-1-elasticsearch-1
+Annotations:        kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu request for container elasticsearch; cpu request for init container set-max-map-count
+Status:             Running
+IP:                 10.12.1.12
+Controlled By:      StatefulSet/elasticsearch-1-elasticsearch
+Init Containers:
+  set-max-map-count:
+    Container ID:  docker://990e4113c225140e9583809259b9820f7af5613252746a24c6e94f598f10c707
+    Image:         gcr.io/cloud-marketplace/google/elasticsearch/ubuntu16_04@sha256:281e570b1c254121ef9db4698554084a809d120aebfe14486c1014d0b6d4d3f5
+    Image ID:      docker-pullable://gcr.io/cloud-marketplace/google/elasticsearch/ubuntu16_04@sha256:281e570b1c254121ef9db4698554084a809d120aebfe14486c1014d0b6d4d3f5
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/bash
+      -c
+      if [[ "$(sysctl vm.max_map_count --values)" -lt 262144 ]]; then sysctl -w vm.max_map_count=262144; fi
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 22 Feb 2019 14:23:22 -0500
+      Finished:     Fri, 22 Feb 2019 14:23:22 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Containers:
+  elasticsearch:
+    Container ID:   docker://d8a66e083c3f0c18e74e4a6a5193331a641ebe6ed2ad1057d2ad019a7df73264
+    Image:          gcr.io/cloud-marketplace/google/elasticsearch@sha256:1486a1f208579c3761a68dd12f26d0c7f4ee6728dff55a843f146c78836f7928
+    Image ID:       docker-pullable://gcr.io/cloud-marketplace/google/elasticsearch@sha256:1486a1f208579c3761a68dd12f26d0c7f4ee6728dff55a843f146c78836f7928
+    Ports:          9200/TCP, 9300/TCP
+    Host Ports:     0/TCP, 0/TCP
+    State:          Running
+      Started:      Fri, 22 Feb 2019 14:23:48 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   2Gi
+    Liveness:   exec [/usr/bin/pgrep -x java] delay=5s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:9200/_cluster/health%3Flocal=true delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      NODE_NAME:          elasticsearch-1-elasticsearch-1 (v1:metadata.name)
+      CLUSTER_NAME:       elasticsearch-1-cluster
+      DISCOVERY_SERVICE:  elasticsearch-1-elasticsearch-svc
+      BACKUP_REPO_PATH:   
+    Mounts:
+      /etc/elasticsearch/elasticsearch.yml from configmap (rw)
+      /etc/elasticsearch/log4j2.properties from configmap (rw)
+      /usr/share/elasticsearch/data from elasticsearch-1-elasticsearch-pvc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  elasticsearch-1-elasticsearch-pvc:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  elasticsearch-1-elasticsearch-pvc-elasticsearch-1-elasticsearch-1
+    ReadOnly:   false
+  configmap:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      elasticsearch-1-configmap
+    Optional:  false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               ingestor-858f9cccc6-cff8d
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Thu, 28 Feb 2019 10:24:43 -0500
+Labels:             app=ingestor
+                    pod-template-hash=4149577772
+                    role=broker
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.1.18
+Controlled By:      ReplicaSet/ingestor-858f9cccc6
+Containers:
+  ingestor:
+    Container ID:   docker://5994f896a83a143ee526160a7dc30b0b8afabac25558d10d02bd93c83f34393b
+    Image:          gcr.io/taplytics-gcr/ingestor-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/ingestor-service@sha256:29c7523aa746a978ccf69fc46bcc7c885a1e6ec697d2ba83fe0eeb9bd0757746
+    Port:           8090/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 28 Feb 2019 10:24:45 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:  1
+    Requests:
+      cpu:      1
+    Liveness:   exec [./ingestor_health_check.sh] delay=60s timeout=5s period=30s #success=1 #failure=3
+    Readiness:  http-get http://:8090/healthz delay=45s timeout=5s period=30s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      WORKERTYPE:           broker
+      VERTICA_CONNECTIONS:  3
+      BROKER_POOL:          1
+      AWS_DEFAULT_REGION:   us-east-1
+      TLENV:                development
+      LOG_LEVEL:            DEBUG
+      PORT:                 8090
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               ingestor-worker-7745b9c945-sfsml
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-b5px/10.128.15.199
+Start Time:         Thu, 21 Feb 2019 13:59:56 -0500
+Labels:             app=ingestor
+                    org=taplytics
+                    pod-template-hash=3301657501
+                    role=worker
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.2.16
+Controlled By:      ReplicaSet/ingestor-worker-7745b9c945
+Containers:
+  ingestor-worker:
+    Container ID:   docker://a09e96ab824c1152b3b8b93772c25d58f99eccb35c58b30c4fc5b4cb4cb80204
+    Image:          gcr.io/taplytics-gcr/ingestor-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/ingestor-service@sha256:c9508d7203a1e2664462d8b2a4857c8acc12ae099052519e5d4048cd26023dda
+    Port:           8090/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:00:43 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  500M
+    Requests:
+      cpu:     300m
+      memory:  300M
+    Liveness:  exec [./ingestor_health_check.sh] delay=60s timeout=5s period=30s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      WORKERTYPE:           worker
+      LOG_LEVEL:            DEBUG
+      VERTICA_CONNECTIONS:  3
+      BROKER_POOL:          1
+      AWS_DEFAULT_REGION:   us-east-1
+      TLENV:                PROD
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               journey-service-74c87444fb-g964c
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-gmlc/10.128.15.196
+Start Time:         Thu, 21 Feb 2019 14:01:39 -0500
+Labels:             app=journey-service
+                    org=taplytics
+                    pod-template-hash=3074300096
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.0.15
+Controlled By:      ReplicaSet/journey-service-74c87444fb
+Containers:
+  journey-service:
+    Container ID:   docker://ee2e0eac297cd44e1de8b28133beb025f655431f0316253d3976abe387f41e4c
+    Image:          gcr.io/taplytics-gcr/journey-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/journey-service@sha256:ef2846484c16f76803c5afd7ca63965f490ecaec2dc91f565407a0c52027b9da
+    Port:           3007/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:02:11 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  500M
+    Requests:
+      cpu:      1
+      memory:   300M
+    Liveness:   http-get http://:3007/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:3007/ delay=20s timeout=5s period=10s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      ENABLE_PROFILING:           1
+      PORT:                       3007
+      CPU_COUNT:                  1 (requests.cpu)
+      QUEUE_BATCH_SIZE:           100
+      RENDERER_BATCH_SIZE:        100
+      BATCH_FLUSH_INTERVAL:       20
+      BUFFER_SIZE:                300
+      LOG_LEVEL:                  info
+      ENABLE_OFFSET_HISTORY:      1
+      MAX_EVENT_AGE:              1
+      CASSANDRA_WORKERS:          2000
+      CASSANDRA_CREATE_TABLES:    1
+      CASSANDRA_DISABLE_BUCKETS:  1
+      NSOLID_APPNAME:             journey-service
+      NSOLID_COMMAND:             console.nsolid:9001
+      NSOLID_DATA:                console.nsolid:9002
+      NSOLID_BULK:                console.nsolid:9003
+      PUBLISH_WORKERS:            200
+      BENCHMARK:                  0
+      BENCHMARK_TEST_SIZE:        500000
+      BENCHMARK_ONLY_QUEUED:      1
+      MESSAGE_WORKERS:            200
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               kafka-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zgjz/10.128.15.200
+Start Time:         Tue, 19 Feb 2019 15:00:28 -0500
+Labels:             app=kafka
+                    controller-revision-hash=kafka-646c5d494c
+                    statefulset.kubernetes.io/pod-name=kafka-0
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container kafka
+Status:             Running
+IP:                 10.12.1.5
+Controlled By:      StatefulSet/kafka
+Containers:
+  kafka:
+    Container ID:  docker://65ad5f3ad933161ed1a0951eff241165b8cd37d303a54876e444a44494476d0b
+    Image:         gcr.io/google_samples/k8skafka:v1
+    Image ID:      docker-pullable://gcr.io/google_samples/k8skafka@sha256:1be8f40245992b94196c998d42a27da3840104c41eb78b8a389276a2c5d3b96f
+    Port:          9093/TCP
+    Host Port:     0/TCP
+    Command:
+      sh
+      -c
+      exec kafka-server-start.sh /opt/kafka/config/server.properties --override broker.id=${HOSTNAME##*-} \
+      --override listeners=PLAINTEXT://:9093 \
+      --override zookeeper.connect=zookeeper-0.zookeeper.default.svc.cluster.local:2181,zookeeper-1.zookeeper.default.svc.cluster.local:2181,zookeeper-2.zookeeper.default.svc.cluster.local:2181 \
+      --override log.dir=/var/lib/kafka \
+      --override auto.create.topics.enable=true \
+      --override auto.leader.rebalance.enable=true \
+      --override background.threads=10 \
+      --override compression.type=producer \
+      --override delete.topic.enable=false \
+      --override leader.imbalance.check.interval.seconds=300 \
+      --override leader.imbalance.per.broker.percentage=10 \
+      --override log.flush.interval.messages=9223372036854775807 \
+      --override log.flush.offset.checkpoint.interval.ms=60000 \
+      --override log.flush.scheduler.interval.ms=9223372036854775807 \
+      --override log.retention.bytes=-1 \
+      --override log.retention.hours=168 \
+      --override log.roll.hours=168 \
+      --override log.roll.jitter.hours=0 \
+      --override log.segment.bytes=1073741824 \
+      --override log.segment.delete.delay.ms=60000 \
+      --override message.max.bytes=1000012 \
+      --override min.insync.replicas=1 \
+      --override num.io.threads=8 \
+      --override num.network.threads=3 \
+      --override num.recovery.threads.per.data.dir=1 \
+      --override num.replica.fetchers=1 \
+      --override offset.metadata.max.bytes=4096 \
+      --override offsets.commit.required.acks=-1 \
+      --override offsets.commit.timeout.ms=5000 \
+      --override offsets.load.buffer.size=5242880 \
+      --override offsets.retention.check.interval.ms=600000 \
+      --override offsets.retention.minutes=1440 \
+      --override offsets.topic.compression.codec=0 \
+      --override offsets.topic.num.partitions=50 \
+      --override offsets.topic.replication.factor=3 \
+      --override offsets.topic.segment.bytes=104857600 \
+      --override queued.max.requests=500 \
+      --override quota.consumer.default=9223372036854775807 \
+      --override quota.producer.default=9223372036854775807 \
+      --override replica.fetch.min.bytes=1 \
+      --override replica.fetch.wait.max.ms=500 \
+      --override replica.high.watermark.checkpoint.interval.ms=5000 \
+      --override replica.lag.time.max.ms=10000 \
+      --override replica.socket.receive.buffer.bytes=65536 \
+      --override replica.socket.timeout.ms=30000 \
+      --override request.timeout.ms=30000 \
+      --override socket.receive.buffer.bytes=102400 \
+      --override socket.request.max.bytes=104857600 \
+      --override socket.send.buffer.bytes=102400 \
+      --override unclean.leader.election.enable=true \
+      --override zookeeper.session.timeout.ms=6000 \
+      --override zookeeper.set.acl=false \
+      --override broker.id.generation.enable=true \
+      --override connections.max.idle.ms=600000 \
+      --override controlled.shutdown.enable=true \
+      --override controlled.shutdown.max.retries=3 \
+      --override controlled.shutdown.retry.backoff.ms=5000 \
+      --override controller.socket.timeout.ms=30000 \
+      --override default.replication.factor=1 \
+      --override fetch.purgatory.purge.interval.requests=1000 \
+      --override group.max.session.timeout.ms=300000 \
+      --override group.min.session.timeout.ms=6000 \
+      --override inter.broker.protocol.version=0.10.2-IV0 \
+      --override log.cleaner.backoff.ms=15000 \
+      --override log.cleaner.dedupe.buffer.size=134217728 \
+      --override log.cleaner.delete.retention.ms=86400000 \
+      --override log.cleaner.enable=true \
+      --override log.cleaner.io.buffer.load.factor=0.9 \
+      --override log.cleaner.io.buffer.size=524288 \
+      --override log.cleaner.io.max.bytes.per.second=1.7976931348623157E308 \
+      --override log.cleaner.min.cleanable.ratio=0.5 \
+      --override log.cleaner.min.compaction.lag.ms=0 \
+      --override log.cleaner.threads=1 \
+      --override log.cleanup.policy=delete \
+      --override log.index.interval.bytes=4096 \
+      --override log.index.size.max.bytes=10485760 \
+      --override log.message.timestamp.difference.max.ms=9223372036854775807 \
+      --override log.message.timestamp.type=CreateTime \
+      --override log.preallocate=false \
+      --override log.retention.check.interval.ms=300000 \
+      --override max.connections.per.ip=2147483647 \
+      --override num.partitions=1 \
+      --override producer.purgatory.purge.interval.requests=1000 \
+      --override replica.fetch.backoff.ms=1000 \
+      --override replica.fetch.max.bytes=1048576 \
+      --override replica.fetch.response.max.bytes=10485760 \
+      --override reserved.broker.max.id=1000
+      
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:06:46 -0500
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 19 Feb 2019 15:03:59 -0500
+      Finished:     Tue, 19 Feb 2019 15:04:00 -0500
+    Ready:          True
+    Restart Count:  6
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=30s timeout=1s period=5s #success=1 #failure=3
+    Readiness:  exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      KAFKA_HEAP_OPTS:  -Xmx512M -Xms512M
+      KAFKA_OPTS:       -Dlogging.level=INFO
+    Mounts:
+      /var/lib/kafka from datadir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-kafka-0
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               kafka-1
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zhj8/10.128.15.198
+Start Time:         Tue, 19 Feb 2019 15:06:53 -0500
+Labels:             app=kafka
+                    controller-revision-hash=kafka-646c5d494c
+                    statefulset.kubernetes.io/pod-name=kafka-1
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container kafka
+Status:             Running
+IP:                 10.12.6.11
+Controlled By:      StatefulSet/kafka
+Containers:
+  kafka:
+    Container ID:  docker://852b3182e590ea458d8dd0b964c4700386441d758d0c0915978d468ced6db72f
+    Image:         gcr.io/google_samples/k8skafka:v1
+    Image ID:      docker-pullable://gcr.io/google_samples/k8skafka@sha256:1be8f40245992b94196c998d42a27da3840104c41eb78b8a389276a2c5d3b96f
+    Port:          9093/TCP
+    Host Port:     0/TCP
+    Command:
+      sh
+      -c
+      exec kafka-server-start.sh /opt/kafka/config/server.properties --override broker.id=${HOSTNAME##*-} \
+      --override listeners=PLAINTEXT://:9093 \
+      --override zookeeper.connect=zookeeper-0.zookeeper.default.svc.cluster.local:2181,zookeeper-1.zookeeper.default.svc.cluster.local:2181,zookeeper-2.zookeeper.default.svc.cluster.local:2181 \
+      --override log.dir=/var/lib/kafka \
+      --override auto.create.topics.enable=true \
+      --override auto.leader.rebalance.enable=true \
+      --override background.threads=10 \
+      --override compression.type=producer \
+      --override delete.topic.enable=false \
+      --override leader.imbalance.check.interval.seconds=300 \
+      --override leader.imbalance.per.broker.percentage=10 \
+      --override log.flush.interval.messages=9223372036854775807 \
+      --override log.flush.offset.checkpoint.interval.ms=60000 \
+      --override log.flush.scheduler.interval.ms=9223372036854775807 \
+      --override log.retention.bytes=-1 \
+      --override log.retention.hours=168 \
+      --override log.roll.hours=168 \
+      --override log.roll.jitter.hours=0 \
+      --override log.segment.bytes=1073741824 \
+      --override log.segment.delete.delay.ms=60000 \
+      --override message.max.bytes=1000012 \
+      --override min.insync.replicas=1 \
+      --override num.io.threads=8 \
+      --override num.network.threads=3 \
+      --override num.recovery.threads.per.data.dir=1 \
+      --override num.replica.fetchers=1 \
+      --override offset.metadata.max.bytes=4096 \
+      --override offsets.commit.required.acks=-1 \
+      --override offsets.commit.timeout.ms=5000 \
+      --override offsets.load.buffer.size=5242880 \
+      --override offsets.retention.check.interval.ms=600000 \
+      --override offsets.retention.minutes=1440 \
+      --override offsets.topic.compression.codec=0 \
+      --override offsets.topic.num.partitions=50 \
+      --override offsets.topic.replication.factor=3 \
+      --override offsets.topic.segment.bytes=104857600 \
+      --override queued.max.requests=500 \
+      --override quota.consumer.default=9223372036854775807 \
+      --override quota.producer.default=9223372036854775807 \
+      --override replica.fetch.min.bytes=1 \
+      --override replica.fetch.wait.max.ms=500 \
+      --override replica.high.watermark.checkpoint.interval.ms=5000 \
+      --override replica.lag.time.max.ms=10000 \
+      --override replica.socket.receive.buffer.bytes=65536 \
+      --override replica.socket.timeout.ms=30000 \
+      --override request.timeout.ms=30000 \
+      --override socket.receive.buffer.bytes=102400 \
+      --override socket.request.max.bytes=104857600 \
+      --override socket.send.buffer.bytes=102400 \
+      --override unclean.leader.election.enable=true \
+      --override zookeeper.session.timeout.ms=6000 \
+      --override zookeeper.set.acl=false \
+      --override broker.id.generation.enable=true \
+      --override connections.max.idle.ms=600000 \
+      --override controlled.shutdown.enable=true \
+      --override controlled.shutdown.max.retries=3 \
+      --override controlled.shutdown.retry.backoff.ms=5000 \
+      --override controller.socket.timeout.ms=30000 \
+      --override default.replication.factor=1 \
+      --override fetch.purgatory.purge.interval.requests=1000 \
+      --override group.max.session.timeout.ms=300000 \
+      --override group.min.session.timeout.ms=6000 \
+      --override inter.broker.protocol.version=0.10.2-IV0 \
+      --override log.cleaner.backoff.ms=15000 \
+      --override log.cleaner.dedupe.buffer.size=134217728 \
+      --override log.cleaner.delete.retention.ms=86400000 \
+      --override log.cleaner.enable=true \
+      --override log.cleaner.io.buffer.load.factor=0.9 \
+      --override log.cleaner.io.buffer.size=524288 \
+      --override log.cleaner.io.max.bytes.per.second=1.7976931348623157E308 \
+      --override log.cleaner.min.cleanable.ratio=0.5 \
+      --override log.cleaner.min.compaction.lag.ms=0 \
+      --override log.cleaner.threads=1 \
+      --override log.cleanup.policy=delete \
+      --override log.index.interval.bytes=4096 \
+      --override log.index.size.max.bytes=10485760 \
+      --override log.message.timestamp.difference.max.ms=9223372036854775807 \
+      --override log.message.timestamp.type=CreateTime \
+      --override log.preallocate=false \
+      --override log.retention.check.interval.ms=300000 \
+      --override max.connections.per.ip=2147483647 \
+      --override num.partitions=1 \
+      --override producer.purgatory.purge.interval.requests=1000 \
+      --override replica.fetch.backoff.ms=1000 \
+      --override replica.fetch.max.bytes=1048576 \
+      --override replica.fetch.response.max.bytes=10485760 \
+      --override reserved.broker.max.id=1000
+      
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:07:18 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=30s timeout=1s period=5s #success=1 #failure=3
+    Readiness:  exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      KAFKA_HEAP_OPTS:  -Xmx512M -Xms512M
+      KAFKA_OPTS:       -Dlogging.level=INFO
+    Mounts:
+      /var/lib/kafka from datadir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-kafka-1
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               kafka-2
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Tue, 19 Feb 2019 15:07:31 -0500
+Labels:             app=kafka
+                    controller-revision-hash=kafka-646c5d494c
+                    statefulset.kubernetes.io/pod-name=kafka-2
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container kafka
+Status:             Running
+IP:                 10.12.4.9
+Controlled By:      StatefulSet/kafka
+Containers:
+  kafka:
+    Container ID:  docker://6622fe9fcdbe0359a6fff5333d212a83716bd768f23a7afb9c82d83b3ef951cb
+    Image:         gcr.io/google_samples/k8skafka:v1
+    Image ID:      docker-pullable://gcr.io/google_samples/k8skafka@sha256:1be8f40245992b94196c998d42a27da3840104c41eb78b8a389276a2c5d3b96f
+    Port:          9093/TCP
+    Host Port:     0/TCP
+    Command:
+      sh
+      -c
+      exec kafka-server-start.sh /opt/kafka/config/server.properties --override broker.id=${HOSTNAME##*-} \
+      --override listeners=PLAINTEXT://:9093 \
+      --override zookeeper.connect=zookeeper-0.zookeeper.default.svc.cluster.local:2181,zookeeper-1.zookeeper.default.svc.cluster.local:2181,zookeeper-2.zookeeper.default.svc.cluster.local:2181 \
+      --override log.dir=/var/lib/kafka \
+      --override auto.create.topics.enable=true \
+      --override auto.leader.rebalance.enable=true \
+      --override background.threads=10 \
+      --override compression.type=producer \
+      --override delete.topic.enable=false \
+      --override leader.imbalance.check.interval.seconds=300 \
+      --override leader.imbalance.per.broker.percentage=10 \
+      --override log.flush.interval.messages=9223372036854775807 \
+      --override log.flush.offset.checkpoint.interval.ms=60000 \
+      --override log.flush.scheduler.interval.ms=9223372036854775807 \
+      --override log.retention.bytes=-1 \
+      --override log.retention.hours=168 \
+      --override log.roll.hours=168 \
+      --override log.roll.jitter.hours=0 \
+      --override log.segment.bytes=1073741824 \
+      --override log.segment.delete.delay.ms=60000 \
+      --override message.max.bytes=1000012 \
+      --override min.insync.replicas=1 \
+      --override num.io.threads=8 \
+      --override num.network.threads=3 \
+      --override num.recovery.threads.per.data.dir=1 \
+      --override num.replica.fetchers=1 \
+      --override offset.metadata.max.bytes=4096 \
+      --override offsets.commit.required.acks=-1 \
+      --override offsets.commit.timeout.ms=5000 \
+      --override offsets.load.buffer.size=5242880 \
+      --override offsets.retention.check.interval.ms=600000 \
+      --override offsets.retention.minutes=1440 \
+      --override offsets.topic.compression.codec=0 \
+      --override offsets.topic.num.partitions=50 \
+      --override offsets.topic.replication.factor=3 \
+      --override offsets.topic.segment.bytes=104857600 \
+      --override queued.max.requests=500 \
+      --override quota.consumer.default=9223372036854775807 \
+      --override quota.producer.default=9223372036854775807 \
+      --override replica.fetch.min.bytes=1 \
+      --override replica.fetch.wait.max.ms=500 \
+      --override replica.high.watermark.checkpoint.interval.ms=5000 \
+      --override replica.lag.time.max.ms=10000 \
+      --override replica.socket.receive.buffer.bytes=65536 \
+      --override replica.socket.timeout.ms=30000 \
+      --override request.timeout.ms=30000 \
+      --override socket.receive.buffer.bytes=102400 \
+      --override socket.request.max.bytes=104857600 \
+      --override socket.send.buffer.bytes=102400 \
+      --override unclean.leader.election.enable=true \
+      --override zookeeper.session.timeout.ms=6000 \
+      --override zookeeper.set.acl=false \
+      --override broker.id.generation.enable=true \
+      --override connections.max.idle.ms=600000 \
+      --override controlled.shutdown.enable=true \
+      --override controlled.shutdown.max.retries=3 \
+      --override controlled.shutdown.retry.backoff.ms=5000 \
+      --override controller.socket.timeout.ms=30000 \
+      --override default.replication.factor=1 \
+      --override fetch.purgatory.purge.interval.requests=1000 \
+      --override group.max.session.timeout.ms=300000 \
+      --override group.min.session.timeout.ms=6000 \
+      --override inter.broker.protocol.version=0.10.2-IV0 \
+      --override log.cleaner.backoff.ms=15000 \
+      --override log.cleaner.dedupe.buffer.size=134217728 \
+      --override log.cleaner.delete.retention.ms=86400000 \
+      --override log.cleaner.enable=true \
+      --override log.cleaner.io.buffer.load.factor=0.9 \
+      --override log.cleaner.io.buffer.size=524288 \
+      --override log.cleaner.io.max.bytes.per.second=1.7976931348623157E308 \
+      --override log.cleaner.min.cleanable.ratio=0.5 \
+      --override log.cleaner.min.compaction.lag.ms=0 \
+      --override log.cleaner.threads=1 \
+      --override log.cleanup.policy=delete \
+      --override log.index.interval.bytes=4096 \
+      --override log.index.size.max.bytes=10485760 \
+      --override log.message.timestamp.difference.max.ms=9223372036854775807 \
+      --override log.message.timestamp.type=CreateTime \
+      --override log.preallocate=false \
+      --override log.retention.check.interval.ms=300000 \
+      --override max.connections.per.ip=2147483647 \
+      --override num.partitions=1 \
+      --override producer.purgatory.purge.interval.requests=1000 \
+      --override replica.fetch.backoff.ms=1000 \
+      --override replica.fetch.max.bytes=1048576 \
+      --override replica.fetch.response.max.bytes=10485760 \
+      --override reserved.broker.max.id=1000
+      
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:07:55 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=30s timeout=1s period=5s #success=1 #failure=3
+    Readiness:  exec [sh -c /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093] delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      KAFKA_HEAP_OPTS:  -Xmx512M -Xms512M
+      KAFKA_OPTS:       -Dlogging.level=INFO
+    Mounts:
+      /var/lib/kafka from datadir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-kafka-2
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               message-delivery-7f6b979d94-ttqqn
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-wpr7/10.128.15.197
+Start Time:         Thu, 21 Feb 2019 14:00:16 -0500
+Labels:             app=message-delivery
+                    org=taplytics
+                    pod-template-hash=3926535850
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.3.12
+Controlled By:      ReplicaSet/message-delivery-7f6b979d94
+Containers:
+  message-delivery:
+    Container ID:   docker://3417e7af1342de1bddf1e6246c9a5c3d0fda98163bdd9f03957cc4680b429e3e
+    Image:          gcr.io/taplytics-gcr/message-delivery-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/message-delivery-service@sha256:3c24ceadc1a3703d3649bcf338cb7685605d6e820148f7219b7c8072d54cff85
+    Port:           3009/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:00:49 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1200M
+    Requests:
+      cpu:      2
+      memory:   600M
+    Liveness:   http-get http://:3009/healthz delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:3009/healthz delay=10s timeout=5s period=10s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      PORT:                  3009
+      PELTON_BATCH_SIZE:     100
+      BATCH_FLUSH_INTERVAL:  200
+      QUEUE_BATCH_SIZE:      100
+      BUFFER_SIZE:           220
+      MAX_RETRIES:           0
+      LOG_LEVEL:             debug
+      ETS_DELIVERY:          1
+      CPU_COUNT:             2 (requests.cpu)
+      NODE_ENV:              development
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               react-dashboard-74dfb8b75b-zwbgm
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zhj8/10.128.15.198
+Start Time:         Thu, 07 Mar 2019 10:49:36 -0500
+Labels:             app=react-dashboard
+                    org=taplytics
+                    pod-template-hash=3089646316
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.6.18
+Controlled By:      ReplicaSet/react-dashboard-74dfb8b75b
+Containers:
+  react-dashboard:
+    Container ID:   docker://f4fc82e193d1953195c15d46ed3a0d3999334ee49f58d65c8b5dea4b9f02f101
+    Image:          gcr.io/taplytics-gcr/react-dashboard:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/react-dashboard@sha256:9366c5e82d90a229f849b5cd4d27da599201ca41cfa16ba29324f9cc3c89216b
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 07 Mar 2019 10:49:37 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  2G
+    Requests:
+      cpu:     1
+      memory:  1G
+    Environment:
+      REACT_RECURRENCE_MINIMUM:  1
+      UPLOADCARE_KEY:            ef3d34b068f04e7c04c7
+      REACT_ENABLE_RECURRENCE:   1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               redisbox-7b589fbf56-j6p9f
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-b5px/10.128.15.199
+Start Time:         Thu, 21 Feb 2019 10:12:16 -0500
+Labels:             pod-template-hash=3614596912
+                    run=redisbox
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container redisbox
+Status:             Running
+IP:                 10.12.2.12
+Controlled By:      ReplicaSet/redisbox-7b589fbf56
+Containers:
+  redisbox:
+    Container ID:  docker://0fd055217973bc56fb234b7e82ffbb5a6ad97834005d6006102d2d29099bfb14
+    Image:         gcr.io/google_containers/redis:v1
+    Image ID:      docker-pullable://gcr.io/google_containers/redis@sha256:ae4699b8f330d61665125cd381942fc1c57613f2753c5ee6879aff173a8ccb52
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      sh
+    State:          Running
+      Started:      Thu, 21 Feb 2019 10:19:35 -0500
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    130
+      Started:      Thu, 21 Feb 2019 10:12:25 -0500
+      Finished:     Thu, 21 Feb 2019 10:19:34 -0500
+    Ready:          True
+    Restart Count:  1
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               scheduler-6d497d6895-822c6
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Thu, 21 Feb 2019 14:00:36 -0500
+Labels:             app=scheduler
+                    org=taplytics
+                    pod-template-hash=2805382451
+                    role=broker
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.4.17
+Controlled By:      ReplicaSet/scheduler-6d497d6895
+Containers:
+  scheduler:
+    Container ID:   docker://8a44fc9bc7ed8d5fa7f6afab09c0d5298c59d2f1d767b2648719b743e8bccf29
+    Image:          gcr.io/taplytics-gcr/scheduling-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/scheduling-service@sha256:d3ad029f803f4135be036c4770f2ff7dd6889dc92bfb6fb8dd2c4aa5d134ea95
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:01:05 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  300Mi
+    Requests:
+      cpu:      300m
+      memory:   300Mi
+    Liveness:   http-get http://:3000/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:3000/healthz delay=20s timeout=5s period=10s #success=1 #failure=3
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      MAX_CONNS:  1
+      CPU_COUNT:  1 (requests.cpu)
+      PORT:       3000
+      LOG_LEVEL:  info
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               scheduler-worker-66c4657b5c-4nsh6
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-b5px/10.128.15.199
+Start Time:         Thu, 21 Feb 2019 14:00:45 -0500
+Labels:             app=scheduler
+                    org=taplytics
+                    pod-template-hash=2270213617
+                    role=worker
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.2.17
+Controlled By:      ReplicaSet/scheduler-worker-66c4657b5c
+Containers:
+  scheduler-worker:
+    Container ID:   docker://28f9df7fb3f44001b83dc3f9a9267f17db056bcd81493e3c718fc0672b9faf15
+    Image:          gcr.io/taplytics-gcr/scheduling-service:apple-rfp
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/scheduling-service@sha256:d3ad029f803f4135be036c4770f2ff7dd6889dc92bfb6fb8dd2c4aa5d134ea95
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:01:15 -0500
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  1Gi
+    Requests:
+      cpu:     300m
+      memory:  1Gi
+    Environment Variables from:
+      shared-environment  ConfigMap  Optional: false
+      db-environment      ConfigMap  Optional: false
+    Environment:
+      WORKER:       1
+      LOG_LEVEL:    info
+      SKIP_KAFKA:   0
+      CPU_COUNT:    1
+      MAX_WORKERS:  5
+      PORT:         3000
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               vertica-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-b5px/10.128.15.199
+Start Time:         Tue, 26 Feb 2019 15:13:48 -0500
+Labels:             app=vertica
+                    controller-revision-hash=vertica-67687b89bb
+                    statefulset.kubernetes.io/pod-name=vertica-0
+Annotations:        <none>
+Status:             Running
+IP:                 10.12.2.19
+Controlled By:      StatefulSet/vertica
+Containers:
+  vertica:
+    Container ID:   docker://4d50966347472c34b007d783ff52ab7600cfd0fb87fcca2e8315d024e25e7013
+    Image:          gcr.io/taplytics-gcr/vertica:9.1.1
+    Image ID:       docker-pullable://gcr.io/taplytics-gcr/vertica@sha256:8e0ac4f396388f4a53f4a6a36aa83b319738154c42256f1f86acf05bf645b636
+    Port:           5433/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 26 Feb 2019 15:15:42 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        2
+      memory:     5G
+    Environment:  <none>
+    Mounts:
+      /opt/vertica from datadir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-vertica-0
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               vertica-console-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Tue, 26 Feb 2019 15:16:48 -0500
+Labels:             app=vertica-console
+                    controller-revision-hash=vertica-console-66bb8dd69
+                    statefulset.kubernetes.io/pod-name=vertica-console-0
+Annotations:        <none>
+Status:             Pending
+IP:                 10.12.4.21
+Controlled By:      StatefulSet/vertica-console
+Containers:
+  vertica-console:
+    Container ID:   
+    Image:          taplytics/vertica-console:9.1.1
+    Image ID:       
+    Port:           5450/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:        1
+      memory:     1G
+    Environment:  <none>
+    Mounts:
+      /opt/vconsole from vertica-console-storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  vertica-console-storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  vertica-console-storage-vertica-console-0
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason   Age                      From                                                          Message
+  ----     ------   ----                     ----                                                          -------
+  Warning  Failed   24m (x87869 over 14d)    kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-m9kn  Error: ImagePullBackOff
+  Normal   BackOff  4m12s (x87955 over 14d)  kubelet, gke-terraform-2019-clust-default-pool-ecd4d825-m9kn  Back-off pulling image "taplytics/vertica-console:9.1.1"
+
+
+Name:               zookeeper-0
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-wpr7/10.128.15.197
+Start Time:         Tue, 19 Feb 2019 15:00:22 -0500
+Labels:             app=zookeeper
+                    controller-revision-hash=zookeeper-854d4b4c5c
+                    statefulset.kubernetes.io/pod-name=zookeeper-0
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container zookeeper
+Status:             Running
+IP:                 10.12.3.8
+Controlled By:      StatefulSet/zookeeper
+Containers:
+  zookeeper:
+    Container ID:  docker://ae917b89abdfd85328a31da2152d1273303fc9d984b2546fcd0d9924dc82dc18
+    Image:         gcr.io/google_samples/k8szk:v3
+    Image ID:      docker-pullable://gcr.io/google_samples/k8szk@sha256:eee48b4ab091324993baec42ee542f26836acfd24821eb3891e5a7c281b80dad
+    Ports:         2181/TCP, 2888/TCP, 3888/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP
+    Command:
+      sh
+      -c
+      zkGenConfig.sh && zkServer.sh start-foreground
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:02:37 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Environment:
+      ZK_REPLICAS:           3
+      ZK_HEAP_SIZE:          <set to the key 'jvm.heap' of config map 'zookeeper-config'>        Optional: false
+      ZK_TICK_TIME:          <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_INIT_LIMIT:         <set to the key 'init' of config map 'zookeeper-config'>            Optional: false
+      ZK_SYNC_LIMIT:         <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_MAX_CLIENT_CNXNS:   <set to the key 'client.cnxns' of config map 'zookeeper-config'>    Optional: false
+      ZK_SNAP_RETAIN_COUNT:  <set to the key 'snap.retain' of config map 'zookeeper-config'>     Optional: false
+      ZK_PURGE_INTERVAL:     <set to the key 'purge.interval' of config map 'zookeeper-config'>  Optional: false
+      ZK_CLIENT_PORT:        2181
+      ZK_SERVER_PORT:        2888
+      ZK_ELECTION_PORT:      3888
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-zookeeper-0
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               zookeeper-1
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-zhj8/10.128.15.198
+Start Time:         Tue, 19 Feb 2019 15:02:49 -0500
+Labels:             app=zookeeper
+                    controller-revision-hash=zookeeper-854d4b4c5c
+                    statefulset.kubernetes.io/pod-name=zookeeper-1
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container zookeeper
+Status:             Running
+IP:                 10.12.6.9
+Controlled By:      StatefulSet/zookeeper
+Containers:
+  zookeeper:
+    Container ID:  docker://9707369af4559558fd4edb90a4ec3d044962b3838942e018087c99a68f3e5319
+    Image:         gcr.io/google_samples/k8szk:v3
+    Image ID:      docker-pullable://gcr.io/google_samples/k8szk@sha256:eee48b4ab091324993baec42ee542f26836acfd24821eb3891e5a7c281b80dad
+    Ports:         2181/TCP, 2888/TCP, 3888/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP
+    Command:
+      sh
+      -c
+      zkGenConfig.sh && zkServer.sh start-foreground
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:03:09 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Environment:
+      ZK_REPLICAS:           3
+      ZK_HEAP_SIZE:          <set to the key 'jvm.heap' of config map 'zookeeper-config'>        Optional: false
+      ZK_TICK_TIME:          <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_INIT_LIMIT:         <set to the key 'init' of config map 'zookeeper-config'>            Optional: false
+      ZK_SYNC_LIMIT:         <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_MAX_CLIENT_CNXNS:   <set to the key 'client.cnxns' of config map 'zookeeper-config'>    Optional: false
+      ZK_SNAP_RETAIN_COUNT:  <set to the key 'snap.retain' of config map 'zookeeper-config'>     Optional: false
+      ZK_PURGE_INTERVAL:     <set to the key 'purge.interval' of config map 'zookeeper-config'>  Optional: false
+      ZK_CLIENT_PORT:        2181
+      ZK_SERVER_PORT:        2888
+      ZK_ELECTION_PORT:      3888
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-zookeeper-1
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+
+
+Name:               zookeeper-2
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               gke-terraform-2019-clust-default-pool-ecd4d825-m9kn/10.128.15.195
+Start Time:         Tue, 19 Feb 2019 15:03:31 -0500
+Labels:             app=zookeeper
+                    controller-revision-hash=zookeeper-854d4b4c5c
+                    statefulset.kubernetes.io/pod-name=zookeeper-2
+Annotations:        kubernetes.io/limit-ranger: LimitRanger plugin set: cpu request for container zookeeper
+Status:             Running
+IP:                 10.12.4.8
+Controlled By:      StatefulSet/zookeeper
+Containers:
+  zookeeper:
+    Container ID:  docker://dc036e18cfe97316a18ddca532920149e9095a85bc36d207161ab2ba72f54447
+    Image:         gcr.io/google_samples/k8szk:v3
+    Image ID:      docker-pullable://gcr.io/google_samples/k8szk@sha256:eee48b4ab091324993baec42ee542f26836acfd24821eb3891e5a7c281b80dad
+    Ports:         2181/TCP, 2888/TCP, 3888/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP
+    Command:
+      sh
+      -c
+      zkGenConfig.sh && zkServer.sh start-foreground
+    State:          Running
+      Started:      Tue, 19 Feb 2019 15:03:51 -0500
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   100M
+    Liveness:   exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  exec [zkOk.sh] delay=10s timeout=5s period=10s #success=1 #failure=3
+    Environment:
+      ZK_REPLICAS:           3
+      ZK_HEAP_SIZE:          <set to the key 'jvm.heap' of config map 'zookeeper-config'>        Optional: false
+      ZK_TICK_TIME:          <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_INIT_LIMIT:         <set to the key 'init' of config map 'zookeeper-config'>            Optional: false
+      ZK_SYNC_LIMIT:         <set to the key 'tick' of config map 'zookeeper-config'>            Optional: false
+      ZK_MAX_CLIENT_CNXNS:   <set to the key 'client.cnxns' of config map 'zookeeper-config'>    Optional: false
+      ZK_SNAP_RETAIN_COUNT:  <set to the key 'snap.retain' of config map 'zookeeper-config'>     Optional: false
+      ZK_PURGE_INTERVAL:     <set to the key 'purge.interval' of config map 'zookeeper-config'>  Optional: false
+      ZK_CLIENT_PORT:        2181
+      ZK_SERVER_PORT:        2888
+      ZK_ELECTION_PORT:      3888
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vvpc5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  datadir:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  datadir-zookeeper-2
+    ReadOnly:   false
+  default-token-vvpc5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-vvpc5
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
