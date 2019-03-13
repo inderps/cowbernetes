@@ -8,17 +8,21 @@
     "start": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "./node_modules/mocha/bin/mocha test/**/*.js",
+    "lint": "eslint ."
   },
-  "author": "Sandeep Raveesh",
+  "author": "singhinther@gmail.com",
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
     "masonry-layout": "^4.2.2",
+    "mocha": "^6.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "sinon": "^7.2.7",
     "svg-react-loader": "^0.4.6"
   },
   "devDependencies": {
