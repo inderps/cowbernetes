@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import Masonry from 'masonry-layout';
 import CowFarm from '../CowFarm';
 import './Village.css';
+import io from 'socket.io-client';
 
 class Village extends Component {
   static propTypes = {
     controllers: PropTypes.arrayOf(PropTypes.object).isRequired
+  }
+
+  componentDidMount() {
+    const socket = io.connect(window.location.host, { reconnect: true });
   }
 
   componentDidUpdate() {
