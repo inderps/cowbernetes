@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Masonry from 'masonry-layout';
+import io from 'socket.io-client';
 import CowFarm from '../CowFarm';
 import './Village.css';
-import io from 'socket.io-client';
 
 class Village extends Component {
-  static propTypes = {
-    controllers: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
+  state = { controllers: [] };
 
   componentDidMount() {
     const socket = io.connect(window.location.host, { reconnect: true });
-  }
+    socket.on('take-controllers', (controllers) => {
+      this.setState({ controllers });
 
-  componentDidUpdate() {
-    if (this.masonry && this.props.controllers) {
-      this.masonry.destroy();
-      this.masonry = new Masonry('.village', { // eslint-disable-line no-new
-        itemSelector: '.cow-farm',
-        columnWidth: 50
-      });
-    } else if (this.props.controllers) {
-      this.masonry = new Masonry('.village', { // eslint-disable-line no-new
-        itemSelector: '.cow-farm',
-        columnWidth: 50
-      });
-    }
+      if (this.masonry && this.state.controllers) {
+        this.masonry.destroy();
+        this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+          itemSelector: '.cow-farm',
+          columnWidth: 50
+        });
+      } else if (this.state.controllers) {
+        this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+          itemSelector: '.cow-farm',
+          columnWidth: 50
+        });
+      }
+    });
+
+    socket.on('connect', () => {
+      setInterval(() => {
+        socket.emit('give-controllers');
+      }, 2000);
+    });
   }
 
   render() {
-    const { controllers } = this.props;
+    const { controllers } = this.state;
 
     return (
       <div className="village">

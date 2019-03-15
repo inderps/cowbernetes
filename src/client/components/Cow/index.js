@@ -7,23 +7,19 @@ import sickCow from './assets/sick-cow.gif';
 // import Cow from 'svg-react-loader?name=Cow!./assets/cow.svg';
 
 const Cow = ({ pod }) => {
-  let cow = deadCow; let
-    cowClass = 'cow shaking';
+  let cow = fineCow;
+  let cowClass = 'cow';
 
-  switch (pod.status) {
-    case 'Running':
-      cow = sickCow;
-      break;
-    case 'ContainerCreating':
-      cowClass = `${cowClass} shaking`;
-      break;
-    case 'Terminating':
-      cow = deadCow;
-      cowClass = `${cowClass} shaking`;
-      break;
+  if (pod.status.startsWith('ContainerCreating')) {
+    cowClass = `${cowClass} shaking`;
+  } else if (pod.status.startsWith('Pending')) {
+    cow = sickCow;
+    cowClass = `${cowClass} shaking`;
+  } else if (pod.status.startsWith('Terminating')) {
+    cow = deadCow;
+    cowClass = `${cowClass} shaking`;
   }
 
-  console.log(pod);
   return (<img className={cowClass} src={cow} alt="cow" />);
 };
 

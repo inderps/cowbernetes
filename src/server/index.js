@@ -17,6 +17,10 @@ app.get('/api/get_controllers', (req, res) => {
 const server = http.createServer(app);
 const io = socketio(server);
 
-io.on('connection', () => { console.log('new socket connection'); });
+io.on('connection', (socket) => {
+  socket.on('give-controllers', () => {
+    socket.emit('take-controllers', getControllers());
+  });
+});
 
 server.listen(8080);
