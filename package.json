@@ -10,6 +10,7 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "./node_modules/mocha/bin/mocha test/**/*.js",
+    "integration": "./node_modules/mocha/bin/mocha --timeout 20000",
     "lint": "eslint ."
   },
   "author": "singhinther@gmail.com",
