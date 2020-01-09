@@ -4,7 +4,7 @@
 
 This is a open source build monitor for kubernetes (WIP)
 
-- [simple-react-full-stack](#simple-react-full-stack)
+- [Cowbernetes](#Cowbernetes)
   - [Introduction](#introduction)
   - [Quick Start](#quick-start)
   - [Documentation](#documentation)
