@@ -6,21 +6,21 @@ import sickCow from './assets/sick-cow.gif';
 // https://www.flaticon.com/free-icon/cow_194983
 // import Cow from 'svg-react-loader?name=Cow!./assets/cow.svg';
 
-const Cow = ({ pod }) => {
-  let cow = fineCow;
+const Cow = ({ cow }) => {
+  let cowImage = fineCow;
   let cowClass = 'cow';
 
-  if (pod.status.startsWith('ContainerCreating')) {
+  if (cow.status.startsWith('ContainerCreating')) {
     cowClass = `${cowClass} shaking`;
-  } else if (pod.status.startsWith('Pending')) {
-    cow = sickCow;
+  } else if (cow.status.startsWith('Pending')) {
+    cowImage = sickCow;
     cowClass = `${cowClass} shaking`;
-  } else if (pod.status.startsWith('Terminating')) {
-    cow = deadCow;
+  } else if (cow.status.startsWith('Terminating')) {
+    cowImage = deadCow;
     cowClass = `${cowClass} shaking`;
   }
 
-  return (<img className={cowClass} src={cow} alt="cow" />);
+  return (<img className={cowClass} src={cowImage} alt="cow" />);
 };
 
 export default Cow;

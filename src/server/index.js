@@ -1,26 +1,19 @@
 const express = require('express');
-const socketio = require('socket.io');
 const http = require('http');
 const path = require('path');
-const { getControllers } = require('./kubectl');
+const { start } = require('./fetch-pods-worker');
+const { fetchFarms } = require('./fetch-farms');
+
+// start(30000, './pods.json');
 
 const app = express();
 
 app.use(express.static('dist'));
 
-app.use('/socket.io', express.static(path.join(__dirname, 'node_modules/socket.io-client/dist/')));
-
-app.get('/api/get_controllers', (req, res) => {
-  res.send(getControllers());
+app.get('/api/fetch-farms', (req, res) => {
+  res.send(fetchFarms('./pods.json')());
 });
 
 const server = http.createServer(app);
-const io = socketio(server);
-
-io.on('connection', (socket) => {
-  socket.on('give-controllers', () => {
-    socket.emit('take-controllers', getControllers());
-  });
-});
 
 server.listen(8080);

@@ -4,13 +4,13 @@ import Cow from '../Cow';
 import './CowFarm.css';
 import houseImage from './assets/house.png';
 
-const CowFarm = ({ controller }) => (
+const CowFarm = ({ farm }) => (
   <div className="cow-farm">
-    <div className="billboard">{controller.name}</div>
+    <div className="billboard">{farm.name}</div>
     <img src={houseImage} className="house" alt="house" />
     <div className="farm">
       {
-        controller.pods.map(pod => (<Cow key={pod.name} pod={pod} />))
+        farm.cows.map(cow => (<Cow key={cow.name} cow={cow} />))
       }
     </div>
     <div className="customTag">v2.0</div>
@@ -18,9 +18,9 @@ const CowFarm = ({ controller }) => (
 );
 
 CowFarm.propTypes = {
-  controller: PropTypes.shape({
+  farm: PropTypes.shape({
     name: PropTypes.string,
-    pod: PropTypes.arrayOf(PropTypes.object)
+    cow: PropTypes.arrayOf(PropTypes.object)
   }).isRequired
 };
 
