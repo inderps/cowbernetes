@@ -1,6 +1,7 @@
 .cow-farm {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
   min-height: 200px;
   margin: 15px;
   padding-top: 50px;
@@ -16,7 +17,7 @@
   align-content: center;
 
   flex: 1;
-  padding: 10px;
+  padding: 50px;
 }
 
 .billboard {

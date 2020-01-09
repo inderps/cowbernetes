@@ -7,26 +7,28 @@ class Village extends Component {
   state = { farms: [] };
 
   componentDidMount() {
-    fetch('/api/fetch-farms')
-      .then(res => res.json())
-      .then((farmsResponse) => {
-        this.setState({ farms: farmsResponse });
+    setInterval(() => {
+      fetch('/api/fetch-farms')
+        .then(res => res.json())
+        .then((farmsResponse) => {
+          this.setState({ farms: farmsResponse });
 
-        const { farms } = this.state;
+          const { farms } = this.state;
 
-        if (this.masonry && farms) {
-          this.masonry.destroy();
-          this.masonry = new Masonry('.village', { // eslint-disable-line no-new
-            itemSelector: '.cow-farm',
-            columnWidth: 50
-          });
-        } else if (farms) {
-          this.masonry = new Masonry('.village', { // eslint-disable-line no-new
-            itemSelector: '.cow-farm',
-            columnWidth: 50
-          });
-        }
-      });
+          if (this.masonry && farms) {
+            this.masonry.destroy();
+            this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+              itemSelector: '.cow-farm',
+              columnWidth: 50
+            });
+          } else if (farms) {
+            this.masonry = new Masonry('.village', { // eslint-disable-line no-new
+              itemSelector: '.cow-farm',
+              columnWidth: 50
+            });
+          }
+        });
+    }, 3000);
   }
 
   render() {
