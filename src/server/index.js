@@ -1,7 +1,6 @@
 const express = require('express');
 const http = require('http');
-const path = require('path');
-const { start } = require('./fetch-pods-worker');
+// const { start } = require('./fetch-pods-worker');
 const { fetchFarms } = require('./fetch-farms');
 
 // start(30000, './pods.json');

@@ -9,16 +9,18 @@ class Village extends Component {
   componentDidMount() {
     fetch('/api/fetch-farms')
       .then(res => res.json())
-      .then(farms => {
-        this.setState({ farms });
+      .then((farmsResponse) => {
+        this.setState({ farms: farmsResponse });
 
-        if (this.masonry && this.state.farms) {
+        const { farms } = this.state;
+
+        if (this.masonry && farms) {
           this.masonry.destroy();
           this.masonry = new Masonry('.village', { // eslint-disable-line no-new
             itemSelector: '.cow-farm',
             columnWidth: 50
           });
-        } else if (this.state.farms) {
+        } else if (farms) {
           this.masonry = new Masonry('.village', { // eslint-disable-line no-new
             itemSelector: '.cow-farm',
             columnWidth: 50

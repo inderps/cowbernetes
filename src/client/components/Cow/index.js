@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Cow.css';
 import fineCow from './assets/cow.gif';
 import deadCow from './assets/dead-cow.png';
@@ -22,5 +23,13 @@ const Cow = ({ cow }) => {
 
   return (<img className={cowClass} src={cowImage} alt="cow" />);
 };
+
+Cow.propTypes = {
+  cow: PropTypes.shape({
+    name: PropTypes.string,
+    status: PropTypes.string,
+  }).isRequired
+};
+
 
 export default Cow;

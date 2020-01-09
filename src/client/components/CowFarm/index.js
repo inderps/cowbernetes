@@ -20,7 +20,7 @@ const CowFarm = ({ farm }) => (
 CowFarm.propTypes = {
   farm: PropTypes.shape({
     name: PropTypes.string,
-    cow: PropTypes.arrayOf(PropTypes.object)
+    cows: PropTypes.arrayOf(PropTypes.object)
   }).isRequired
 };
 

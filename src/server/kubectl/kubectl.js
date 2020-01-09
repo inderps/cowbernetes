@@ -5,7 +5,7 @@ const listOfPods = (singleYaml) => {
   return podsYaml.map(yaml => yamlToObject(yaml, ['Name', 'Status', 'Controlled By', 'Restart Count', 'Start Time']));
 };
 
-exports.getPods = (cmdExec) => () => {
+exports.getPods = cmdExec => () => {
   const podsYaml = cmdExec('kubectl describe pods');
   return listOfPods(podsYaml);
 };

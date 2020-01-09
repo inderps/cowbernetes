@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Village from './components/Village';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Village />, document.getElementById('root'));
