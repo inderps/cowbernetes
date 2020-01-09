@@ -1,5 +1,5 @@
 {
-  "name": "kubernetes-monitor",
+  "name": "cowbernetes",
   "version": "1.0.0",
   "description": "Kubernetes client monitor to see status of pods",
   "main": "src/server/index.js",
