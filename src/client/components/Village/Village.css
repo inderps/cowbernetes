@@ -3,3 +3,8 @@ body {
   background: url('./assets/ground10.png');
   background-size: 25px;
 }
+
+.village {
+  display: flex;
+  flex-wrap: wrap;
+}
