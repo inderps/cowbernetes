@@ -7,12 +7,17 @@ class Village extends Component {
 
   componentDidMount() {
     setInterval(() => {
-      fetch('/api/fetch-farms')
-        .then(res => res.json())
-        .then((farmsResponse) => {
-          this.setState({ farms: farmsResponse });
-        });
+      this.fetchFarms();
     }, 3000);
+    this.fetchFarms();
+  }
+
+  fetchFarms() {
+    fetch('/api/fetch-farms')
+      .then(res => res.json())
+      .then((farmsResponse) => {
+        this.setState({ farms: farmsResponse });
+      });
   }
 
   render() {

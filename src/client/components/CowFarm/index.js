@@ -6,7 +6,7 @@ import houseImage from './assets/house.png';
 
 const CowFarm = ({ farm }) => (
   <div className="cow-farm">
-    <div className="billboard">{farm.name}</div>
+    <div className="billboard"><div className="billboard-text">{farm.name}</div></div>
     <img src={houseImage} className="house" alt="house" />
     <div className="farm">
       {

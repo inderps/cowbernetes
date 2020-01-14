@@ -19,6 +19,8 @@ const Cow = ({ cow }) => {
   } else if (cow.status.startsWith('Terminating')) {
     cowImage = deadCow;
     cowClass = `${cowClass} shaking`;
+  } else if (cow.status.startsWith('Failed')) {
+    cowImage = deadCow;
   }
 
   return (<img className={cowClass} src={cowImage} alt="cow" />);
