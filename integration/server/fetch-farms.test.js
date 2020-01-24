@@ -8,6 +8,6 @@ describe('fetchFarms', () => {
 
     assert.equal(farms.length, 42);
     assert.deepEqual(Object.keys(farms[0]), ['fullName', 'name', 'cows']);
-    assert.deepEqual(Object.keys(farms[0].cows[0]), ['status', 'name']);
+    assert.deepEqual(Object.keys(farms[0].cows[0]), ['name', 'status', 'version']);
   });
 });
