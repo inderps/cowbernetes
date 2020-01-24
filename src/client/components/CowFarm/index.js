@@ -13,7 +13,6 @@ const CowFarm = ({ farm }) => (
         farm.cows.map(cow => (<Cow key={cow.name} cow={cow} />))
       }
     </div>
-    <div className="customTag">v2.0</div>
   </div>
 );
 

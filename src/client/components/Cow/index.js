@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Cow.css';
+import ReactTooltip from 'react-tooltip';
 import fineCow from './assets/cow.gif';
 import deadCow from './assets/dead-cow.png';
 import sickCow from './assets/sick-cow.gif';
@@ -23,13 +24,21 @@ const Cow = ({ cow }) => {
     cowImage = deadCow;
   }
 
-  return (<img className={cowClass} src={cowImage} alt="cow" />);
+  const cowBubble = `cowBubble${cow.name}`;
+
+  return (
+    <div>
+      <img className={cowClass} src={cowImage} alt="cow" data-tip data-for={cowBubble} />
+      <ReactTooltip id={cowBubble}>{cow.version}</ReactTooltip>
+    </div>
+  );
 };
 
 Cow.propTypes = {
   cow: PropTypes.shape({
     name: PropTypes.string,
     status: PropTypes.string,
+    version: PropTypes.string,
   }).isRequired
 };
 
