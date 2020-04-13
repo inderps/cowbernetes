@@ -22,7 +22,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-tooltip": "^3.11.2",
+    "react-tooltip": "^4.2.3",
     "sinon": "^7.2.7",
     "svg-react-loader": "^0.4.6"
   },
